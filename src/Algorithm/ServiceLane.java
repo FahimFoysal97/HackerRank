@@ -19,7 +19,8 @@ import java.util.regex.*;
 public class ServiceLane {
     // Complete the serviceLane function below.
     static int[] serviceLane(int n, int[][] cases) {
-
+        
+        
 
     }
 
