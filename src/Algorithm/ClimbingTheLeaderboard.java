@@ -21,12 +21,12 @@ public class ClimbingTheLeaderboard {
     static int[] climbingLeaderboard(int[] scores, int[] alice) {
 
         scores = Arrays.stream(scores).distinct().toArray();
-        Arrays.sort(scores);
+        
         int result[] = new int[alice.length];
         int pos = scores.length-1;
         for(int i=0; i<alice.length; i++){
             for(int j=pos; j>=0;j--){
-                if(alice[i]>scores[j]){
+                if(alice[i]<scores[j]){
                     result[i]=j+2;
                     pos = j;
                     break;
@@ -36,7 +36,9 @@ public class ClimbingTheLeaderboard {
                     pos = j;
                     break;
                 }
-                else if(j==0)result[i]=1;
+                else if(j==0){
+                    result[i]=1;
+                }
             }
         }
         
@@ -51,7 +53,7 @@ public class ClimbingTheLeaderboard {
     private static final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) throws IOException {
-        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
+        //BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
 
         int scoresCount = scanner.nextInt();
         scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
@@ -81,17 +83,17 @@ public class ClimbingTheLeaderboard {
 
         int[] result = climbingLeaderboard(scores, alice);
 
-        for (int i = 0; i < result.length; i++) {
-            bufferedWriter.write(String.valueOf(result[i]));
-
-            if (i != result.length - 1) {
-                bufferedWriter.write("\n");
-            }
-        }
-
-        bufferedWriter.newLine();
-
-        bufferedWriter.close();
+//        for (int i = 0; i < result.length; i++) {
+//            bufferedWriter.write(String.valueOf(result[i]));
+//
+//            if (i != result.length - 1) {
+//                bufferedWriter.write("\n");
+//            }
+//        }
+//
+//        bufferedWriter.newLine();
+//
+//        bufferedWriter.close();
 
         scanner.close();
     }
