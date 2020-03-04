@@ -18,9 +18,8 @@ import java.util.regex.*;
  */
 public class ServiceLane {
     // Complete the serviceLane function below.
-    static int[] serviceLane(int n, int[][] cases) {
-        
-        
+    static int[] serviceLane(int width[], int[][] cases) {
+
 
     }
 
@@ -57,7 +56,7 @@ public class ServiceLane {
             }
         }
 
-        int[] result = serviceLane(n, cases);
+        int[] result = serviceLane(width, cases);
 
         for (int i = 0; i < result.length; i++) {
             bufferedWriter.write(String.valueOf(result[i]));
@@ -72,4 +71,5 @@ public class ServiceLane {
         bufferedWriter.close();
 
         scanner.close();
+    }
 }
