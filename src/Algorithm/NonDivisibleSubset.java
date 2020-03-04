@@ -34,8 +34,29 @@ class Result {
      */
 
     public static int nonDivisibleSubset(int k, List<Integer> s) {
-    // Write your code here
-
+        // Write your code here
+        List<Integer> ss = new ArrayList<>(s);
+        for(int i=0; i<s.size(); i++)ss.set(i, new Integer(s.get(i).intValue()%k));
+        System.out.println(ss);
+        List<Integer> s1 = new ArrayList<>();
+        List<Integer> s2 = new ArrayList<>();
+        for(int i=0; i<s.size()-1; i++){
+            for(int j=i+1; j<s.size(); j++){
+                if( (ss.get(i)+ss.get(j))==k ){
+                    s1.add(s.get(i));
+                    s2.add(s.get(j));
+                }
+            }
+        }
+        List<Integer> st = new ArrayList<>(s1);
+        s1.removeAll(s2);
+        s2.removeAll(st);
+        System.out.println(s1);
+        System.out.println(s2);
+        HashSet<Integer> hs1 = new HashSet<>(s1);
+        hs1.addAll(s2);
+        System.out.println(hs1);
+        return hs1.size();
     }
 
 }
