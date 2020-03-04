@@ -42,11 +42,6 @@ public class ClimbingTheLeaderboard {
             }
         }
         
-//        List<Integer> list = Arrays.stream(scores).boxed().collect(Collectors.toList());
-//        int result[] = new int[alice.length];
-//        for(int i=0; i<alice.length; i++){
-//            result[i]=Collections.binarySearch(list, alice[i]);
-//        }
         return result;
     }
 
