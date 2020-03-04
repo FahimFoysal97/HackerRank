@@ -19,8 +19,13 @@ import java.util.regex.*;
 public class ServiceLane {
     // Complete the serviceLane function below.
     static int[] serviceLane(int width[], int[][] cases) {
-
-
+        int result[] = new int[cases.length];
+        for(int i=0; i<cases.length; i++){
+            int[] a = Arrays.copyOfRange(width, cases[i][0], cases[i][1]+1);
+            Arrays.sort(a);
+            result[i] = a[0];
+        }
+        return result;
     }
 
     private static final Scanner scanner = new Scanner(System.in);
