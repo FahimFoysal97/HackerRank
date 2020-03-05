@@ -23,7 +23,11 @@ public class HalloweenSale {
     // Complete the howManyGames function below.
     static int howManyGames(int p, int d, int m, int s) {
         // Return the number of games you can buy
-
+        int n, r;
+        n=(p-m)/d+1;
+        int sum=n*(2*p+(n-1)*d)/2;
+        r=n+(s-sum)/m;
+        return r;
     }
 
     private static final Scanner scanner = new Scanner(System.in);
