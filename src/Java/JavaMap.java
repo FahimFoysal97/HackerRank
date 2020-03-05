@@ -14,22 +14,22 @@ import java.util.Scanner;
  */
 public class JavaMap {
     public static void main(String []argh){
-        Scanner scan = new Scanner(System.in);
-        int contacts = scan.nextInt();
-        scan.nextLine();
+        Scanner in = new Scanner(System.in);
+        int contacts = in.nextInt();
+        in.nextLine();
         Map<String, Integer> map = new HashMap<>(contacts);
         for(int i=0; i < contacts; i++){
-            String name = scan.nextLine().trim();
-            int phone = scan.nextInt();
-            scan.nextLine();
+            String name = in.nextLine().trim();
+            int phone = in.nextInt();
+            in.nextLine();
             map.put(name, phone);
         }        
 
-        while(scan.hasNext()){
-            String query = scan.nextLine().trim();
-            if(map.containsKey(query))System.out.println(query + "=" + map.get(query));
+        while(in.hasNext()){
+            String s = in.nextLine().trim();
+            if(map.containsKey(s))System.out.println(s + "=" + map.get(s));
             else System.out.println("Not found");
         }
-        scan.close();
+        in.close();
     }
 }
