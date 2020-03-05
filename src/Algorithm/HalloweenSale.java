@@ -25,7 +25,7 @@ public class HalloweenSale {
         // Return the number of games you can buy
         int n;
         n=(p-m)/d+1;
-        int sum=n*(2*p+(n-1)*d)/2;
+        int sum=n*(2*p-(n-1)*d)/2;
         return n+(s-sum)/m;
     }
 
