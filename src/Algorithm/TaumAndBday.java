@@ -36,12 +36,12 @@ class TaumAndBdayResult {
      *  5. INTEGER z
      */
 
-    public static long taumBday(int b, int w, int bc, int wc, int z) {
+    public static long taumBday(long b, long w, long bc, long wc, long z) {
         // Write your code here 
         long cost;
-        if( bc > wc && (wc+z) < bc )cost = (b*wc) + (w*wc) + (b*z);
-        else if( wc > bc && (bc+z) < wc )cost = (b*bc) + (w*bc) + (w*z);
-        else cost = (b*bc) + (w*wc);
+        if( bc>wc && (wc+z)<bc )cost = b*(wc+z) + w*wc;
+        else if( wc>bc && (bc+z)<wc )cost = b*bc + w*(bc+z);
+        else cost = b*bc + w*wc;
         return cost;
     }
 
