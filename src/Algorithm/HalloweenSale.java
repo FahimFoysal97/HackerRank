@@ -23,16 +23,19 @@ public class HalloweenSale {
     // Complete the howManyGames function below.
     static int howManyGames(int p, int d, int m, int s) {
         // Return the number of games you can buy
-        int n;
-        n=(p-m)/d+1;
-        int sum=n*(2*p-(n-1)*d)/2;
-        return n+(s-sum)/m;
+        int result=0;
+        while(s>=p) {
+            s-=p;
+            result++;
+            p=Math.max(m, p-d);
+        }
+        return result;
     }
 
     private static final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) throws IOException {
-        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
+        //BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
 
         String[] pdms = scanner.nextLine().split(" ");
 
@@ -46,10 +49,10 @@ public class HalloweenSale {
 
         int answer = howManyGames(p, d, m, s);
 
-        bufferedWriter.write(String.valueOf(answer));
-        bufferedWriter.newLine();
+        //bufferedWriter.write(String.valueOf(answer));
+        //bufferedWriter.newLine();
 
-        bufferedWriter.close();
+        //bufferedWriter.close();
 
         scanner.close();
     }
