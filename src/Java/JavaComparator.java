@@ -14,6 +14,7 @@ import java.util.*;
 
 // Write your Checker class here
 class Checker implements Comparator {
+    @Override
     public int compare(Object o1, Object o2) {
         Player p1 = (Player) o1;
         Player p2 = (Player) o2;
