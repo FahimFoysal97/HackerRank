@@ -21,6 +21,7 @@ class BiCycle{
 }
 
 class MotorCycle extends BiCycle{
+        @Override
 	String define_me(){
 		return "a cycle with an engine.";
 	}
