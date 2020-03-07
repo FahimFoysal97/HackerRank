@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Algorithm;
+package Algorithm_DataStructure;
 import java.io.*;
 import java.math.*;
 import java.security.*;
@@ -11,30 +11,22 @@ import java.text.*;
 import java.util.*;
 import java.util.concurrent.*;
 import java.util.regex.*;
-import java.util.stream.*;
 
 /**
  *
  * @author Foysal
  */
-public class FindDigits {
 
-    /**
-     * @param args the command line arguments
-     */
-    
 
-    // Complete the findDigits function below.
-    static int findDigits(int n) {
+public class SherlockAndSquares {
 
-        int count=0;
-        int numberOfDigits = (""+n).length();
-        for(int i=0; i<numberOfDigits; i++){
-           int digit=Character.getNumericValue((""+n).charAt(i));
-           if( (digit!=0) && (n%digit==0) )count++;
-        }
-        return count;
-
+    // Complete the squares function below.
+    static int squares(int a, int b) {
+        int a1 = (int)Math.sqrt(a);
+        int b1 = (int)Math.sqrt(b);
+        int n = Math.abs(a1-b1);
+        if(a1*a1==a)n++;
+        return n;
     }
 
     private static final Scanner scanner = new Scanner(System.in);
@@ -42,14 +34,17 @@ public class FindDigits {
     public static void main(String[] args) throws IOException {
         BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
 
-        int t = scanner.nextInt();
+        int q = scanner.nextInt();
         scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
 
-        for (int tItr = 0; tItr < t; tItr++) {
-            int n = scanner.nextInt();
-            scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
+        for (int qItr = 0; qItr < q; qItr++) {
+            String[] ab = scanner.nextLine().split(" ");
 
-            int result = findDigits(n);
+            int a = Integer.parseInt(ab[0]);
+
+            int b = Integer.parseInt(ab[1]);
+
+            int result = squares(a, b);
 
             bufferedWriter.write(String.valueOf(result));
             bufferedWriter.newLine();
@@ -59,5 +54,4 @@ public class FindDigits {
 
         scanner.close();
     }
-    
 }

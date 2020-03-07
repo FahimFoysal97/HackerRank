@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Algorithm;
+package Algorithm_DataStructure;
 import java.io.*;
 import java.math.*;
 import java.security.*;
@@ -18,15 +18,12 @@ import java.util.regex.*;
  */
 
 
-public class SherlockAndSquares {
+public class ArraysDS {
 
-    // Complete the squares function below.
-    static int squares(int a, int b) {
-        int a1 = (int)Math.sqrt(a);
-        int b1 = (int)Math.sqrt(b);
-        int n = Math.abs(a1-b1);
-        if(a1*a1==a)n++;
-        return n;
+    // Complete the reverseArray function below.
+    static int[] reverseArray(int[] a) {
+
+
     }
 
     private static final Scanner scanner = new Scanner(System.in);
@@ -34,21 +31,30 @@ public class SherlockAndSquares {
     public static void main(String[] args) throws IOException {
         BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
 
-        int q = scanner.nextInt();
+        int arrCount = scanner.nextInt();
         scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
 
-        for (int qItr = 0; qItr < q; qItr++) {
-            String[] ab = scanner.nextLine().split(" ");
+        int[] arr = new int[arrCount];
 
-            int a = Integer.parseInt(ab[0]);
+        String[] arrItems = scanner.nextLine().split(" ");
+        scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
 
-            int b = Integer.parseInt(ab[1]);
-
-            int result = squares(a, b);
-
-            bufferedWriter.write(String.valueOf(result));
-            bufferedWriter.newLine();
+        for (int i = 0; i < arrCount; i++) {
+            int arrItem = Integer.parseInt(arrItems[i]);
+            arr[i] = arrItem;
         }
+
+        int[] res = reverseArray(arr);
+
+        for (int i = 0; i < res.length; i++) {
+            bufferedWriter.write(String.valueOf(res[i]));
+
+            if (i != res.length - 1) {
+                bufferedWriter.write(" ");
+            }
+        }
+
+        bufferedWriter.newLine();
 
         bufferedWriter.close();
 

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Algorithm;
+package Algorithm_DataStructure;
 import java.io.*;
 import java.math.*;
 import java.security.*;
@@ -16,25 +16,27 @@ import java.util.regex.*;
  *
  * @author Foysal
  */
-public class EqualizeTheArray {
-    
-    // Complete the equalizeArray function below.
-    static int equalizeArray(int[] arr) {
-        
-        int count[] = new int[100];
-        int max = 0;
-        for (int i = 0; i < arr.length; i++) {
-            count[arr[i] - 1]++; 
-            max = Math.max(max, count[arr[i]-1]);
+
+
+public class IntroToTutorialChallenges {
+
+    // Complete the introTutorial function below.
+    static int introTutorial(int V, int[] arr) {
+        int i=0;
+        while(i<arr.length){
+            if(arr[i]==V)break;
+            i++;
         }
-        
-        return arr.length - max;
+        return i;
     }
 
     private static final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) throws IOException {
         BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
+
+        int V = scanner.nextInt();
+        scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
 
         int n = scanner.nextInt();
         scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
@@ -49,7 +51,7 @@ public class EqualizeTheArray {
             arr[i] = arrItem;
         }
 
-        int result = equalizeArray(arr);
+        int result = introTutorial(V, arr);
 
         bufferedWriter.write(String.valueOf(result));
         bufferedWriter.newLine();
@@ -59,4 +61,3 @@ public class EqualizeTheArray {
         scanner.close();
     }
 }
-

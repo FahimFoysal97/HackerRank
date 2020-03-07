@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Algorithm;
+package Algorithm_DataStructure;
 import java.io.*;
 import java.math.*;
 import java.security.*;
@@ -16,14 +16,16 @@ import java.util.regex.*;
  *
  * @author Foysal
  */
-public class CircularArrayRotation {
-    // Complete the circularArrayRotation function below.
-    static int[] circularArrayRotation(int[] a, int k, int[] queries) {
-        int[] b=new int[a.length];
-        for(int i=0; i<a.length; i++)b[(k+i)%a.length]=a[i];
-        int c[] = new int[queries.length];
-        for(int i=0; i<queries.length; i++)c[i]=b[queries[i]];
-        return c;
+public class ServiceLane {
+    // Complete the serviceLane function below.
+    static int[] serviceLane(int width[], int[][] cases) {
+        int result[] = new int[cases.length];
+        for(int i=0; i<cases.length; i++){
+            int[] a = Arrays.copyOfRange(width, cases[i][0], cases[i][1]+1);
+            Arrays.sort(a);
+            result[i] = a[0];
+        }
+        return result;
     }
 
     private static final Scanner scanner = new Scanner(System.in);
@@ -31,33 +33,35 @@ public class CircularArrayRotation {
     public static void main(String[] args) throws IOException {
         BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
 
-        String[] nkq = scanner.nextLine().split(" ");
+        String[] nt = scanner.nextLine().split(" ");
 
-        int n = Integer.parseInt(nkq[0]);
+        int n = Integer.parseInt(nt[0]);
 
-        int k = Integer.parseInt(nkq[1]);
+        int t = Integer.parseInt(nt[1]);
 
-        int q = Integer.parseInt(nkq[2]);
+        int[] width = new int[n];
 
-        int[] a = new int[n];
-
-        String[] aItems = scanner.nextLine().split(" ");
+        String[] widthItems = scanner.nextLine().split(" ");
         scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
 
         for (int i = 0; i < n; i++) {
-            int aItem = Integer.parseInt(aItems[i]);
-            a[i] = aItem;
+            int widthItem = Integer.parseInt(widthItems[i]);
+            width[i] = widthItem;
         }
 
-        int[] queries = new int[q];
+        int[][] cases = new int[t][2];
 
-        for (int i = 0; i < q; i++) {
-            int queriesItem = scanner.nextInt();
+        for (int i = 0; i < t; i++) {
+            String[] casesRowItems = scanner.nextLine().split(" ");
             scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
-            queries[i] = queriesItem;
+
+            for (int j = 0; j < 2; j++) {
+                int casesItem = Integer.parseInt(casesRowItems[j]);
+                cases[i][j] = casesItem;
+            }
         }
 
-        int[] result = circularArrayRotation(a, k, queries);
+        int[] result = serviceLane(width, cases);
 
         for (int i = 0; i < result.length; i++) {
             bufferedWriter.write(String.valueOf(result[i]));
