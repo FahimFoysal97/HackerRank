@@ -22,8 +22,9 @@ public class ArraysDS {
 
     // Complete the reverseArray function below.
     static int[] reverseArray(int[] a) {
-
-
+        int r[] = new int[a.length];
+        for(int i=0; i<a.length; i++){r[i]=a.length-i;
+        return r;
     }
 
     private static final Scanner scanner = new Scanner(System.in);
