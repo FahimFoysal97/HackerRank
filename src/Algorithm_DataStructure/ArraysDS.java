@@ -23,7 +23,7 @@ public class ArraysDS {
     // Complete the reverseArray function below.
     static int[] reverseArray(int[] a) {
         int r[] = new int[a.length];
-        for(int i=0; i<a.length; i++)r[i]=a.length-i;
+        for(int i=0; i<a.length; i++)r[i]=a[a.length-i-1];
         return r;
     }
 
