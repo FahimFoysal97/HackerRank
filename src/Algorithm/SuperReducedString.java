@@ -26,22 +26,34 @@ public class SuperReducedString {
 
     // Complete the superReducedString function below.
     static String superReducedString(String s) {
-
-
+        
+        Stack<Character> stack = new Stack<>();
+        for (int i = s.length() - 1; i >= 0; i--){
+            if (stack.size() > 0 && stack.peek() == s.charAt(i))stack.pop();
+            else stack.push(s.charAt(i));
+        }
+        if(stack.isEmpty())return "Empty String";
+        String r = "";
+        while(!stack.isEmpty()){
+            r+=stack.lastElement();
+            stack.remove(stack.lastIndexOf(stack.lastElement()));
+        }
+        return r;
     }
 
     public static void main(String[] args) throws IOException {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
-        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
+        //BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
 
         String s = bufferedReader.readLine();
 
         String result = superReducedString(s);
+        System.out.println(result);
+        
+        //bufferedWriter.write(result);
+        //bufferedWriter.newLine();
 
-        bufferedWriter.write(result);
-        bufferedWriter.newLine();
-
-        bufferedReader.close();
-        bufferedWriter.close();
+        //bufferedReader.close();
+        //bufferedWriter.close();
     }
 }
