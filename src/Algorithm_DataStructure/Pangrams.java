@@ -24,7 +24,6 @@ public class Pangrams {
         System.out.println(s.replaceAll("[^a-zA-Z]", "").toLowerCase());
         if(s.replaceAll("[^a-zA-Z]", "").toLowerCase().chars().distinct().count()>25)return "pangram";
         else return "not pangram";
-
     }
 
     private static final Scanner scanner = new Scanner(System.in);
