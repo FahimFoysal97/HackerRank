@@ -32,7 +32,6 @@ public class Pangrams {
         BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
 
         String s = scanner.nextLine();
-
         String result = pangrams(s);
 
         bufferedWriter.write(result);
